@@ -1,0 +1,500 @@
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+:root {
+    --ff-divi-header: "Playfair Display", serif;
+    --ff-divi-body: "Alex Brush", cursive;
+}
+
+hr {
+    margin: 0;
+    opacity: 1;
+}
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+    --bs-gutter-x: 4rem;
+    --bs-gutter-y: 0;
+}
+
+.music-disc {
+    position: fixed;
+    bottom: 30px;
+    left: 20px;
+    background: transparent;
+    width: 40px;
+    z-index: 999;
+}
+
+#preloader {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bs-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.blink-svg {
+    width: 130px; /* sesuaikan ukuran */
+    height: auto;
+    animation: blink 1s infinite;
+    color: var(--bs-primary);
+}
+
+@keyframes blink {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.primary-pane {
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    width: calc(100% - 500px);
+}
+
+.secondary-pane {
+    position: static;
+    right: 0;
+    background-color: var(--bs-body-bg);
+    width: 500px;
+    margin-left: auto;
+}
+
+/* Laptop & Desktop */
+@media screen and (min-width: 1366px) {
+    .primary-pane {
+        width: calc(100% - 400px);
+    }
+
+    .secondary-pane {
+        width: 400px;
+    }
+}
+
+/* Mobile & Tablet Portrait */
+@media only screen and (max-width: 960px) {
+    .primary-pane {
+        position: relative;
+        width: 100%;
+        display: none;
+    }
+
+    .secondary-pane {
+        position: relative;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+section.top-cover {
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: -120%;
+    left: 0;
+    z-index: 9999;
+    opacity: 1;
+}
+
+section.top-cover.show {
+    top: 0;
+    transition: top 0.3s ease-out;
+}
+
+section.top-cover.hide {
+    top: -120%;
+    pointer-events: none;
+    transition: top 1.8s cubic-bezier(0.23, 0.56, 0.38, 0.78);
+}
+
+.top-cover > .inner {
+    position: static;
+    width: 500px;
+    height: 100vh;
+    right: 0;
+    margin-left: auto;
+}
+
+/* Laptop & Desktop */
+@media screen and (min-width: 1366px) {
+    .top-cover > .inner {
+        width: 400px;
+    }
+}
+
+/* Mobile & Tablet Portrait */
+@media only screen and (max-width: 1024px) {
+    .top-cover > .inner {
+        width: 100%;
+    }
+}
+
+.divi-title {
+    position: relative;
+    width: 100%;
+    min-height: 120px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divi-title-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-family: var(--ff-divi-header);
+    font-size: 70px;
+    font-weight: 700;
+
+    color: rgba(var(--bs-body-color-rgb), 0.1);
+}
+
+.divi-title-body {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+
+.divi-title-body h1 {
+    font-family: var(--ff-divi-header);
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+
+    color: var(--bs-primary);
+}
+
+.divi-title-body h2 {
+    font-family: var(--ff-divi-body);
+    font-size: 32px;
+    font-weight: 400;
+
+    margin-top: -5px;
+    margin-left: -30px;
+
+    color: var(--bs-body-color);
+}
+
+.divi-primary .divi-title-body h1 {
+    color: var(--bs-primary);
+}
+
+.divi-secondary .divi-title-body h1 {
+    color: var(--bs-secondary);
+}
+
+.divi-success .divi-title-body h1 {
+    color: var(--bs-success);
+}
+
+.divi-info .divi-title-body h1 {
+    color: var(--bs-info);
+}
+
+.divi-warning .divi-title-body h1 {
+    color: var(--bs-warning);
+}
+
+.divi-danger .divi-title-body h1 {
+    color: var(--bs-danger);
+}
+
+.divi-light .divi-title-body h1 {
+    color: var(--bs-light);
+}
+
+.divi-dark .divi-title-body h1 {
+    color: var(--bs-light);
+}
+
+.divi-dark .divi-title-body h2 {
+    color: var(--bs-light);
+}
+
+.divi-dark .divi-title-header {
+    color: rgba(var(--bs-light-rgb), 0.1);
+}
+
+.putar-kiri {
+    animation: rota-full-left 10s infinite linear;
+}
+
+@keyframes rota-full-left {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes tilt-shaking {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(5px, 5px) rotate(5deg);
+    }
+    50% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    75% {
+        transform: translate(-5px, 5px) rotate(-5deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+.btn-rsvp {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+.page-footer {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bs-light);
+    padding: 12px 0;
+}
+
+.page-footer img {
+    height: 30px;
+}
+
+.page-footer p {
+    font-size: 12px;
+}
+
+.timeline {
+    position: relative;
+    padding: 0;
+    list-style: none;
+    max-width: 1200px;
+    margin: 1rem auto 2rem auto;
+}
+
+.timeline:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    margin-left: -1.5px;
+}
+
+.timeline > .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline > .timeline-item:after,
+.timeline > .timeline-item:before {
+    content: " ";
+    display: table;
+}
+
+.timeline > .timeline-item:after {
+    clear: both;
+}
+
+.timeline > .timeline-item > .timeline-panel {
+    float: left;
+    position: relative;
+    width: 46%;
+    padding: 16px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+.timeline > .timeline-item > .timeline-badge {
+    z-index: 10;
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    border-radius: 50% 50% 50% 50%;
+    text-align: center;
+    font-size: 1.4em;
+    line-height: 55px;
+    overflow: hidden;
+}
+
+.timeline > .timeline-item.timeline-inverted > .timeline-panel {
+    float: right;
+}
+
+.timeline > .timeline-item.timeline-inverted > .timeline-panel:before {
+    right: auto;
+    left: -8px;
+    border-right-width: 8px;
+    border-left-width: 0;
+}
+
+.timeline > .timeline-item.timeline-inverted > .timeline-panel:after {
+    right: auto;
+    left: -7px;
+    border-right-width: 7px;
+    border-left-width: 0;
+}
+
+.timeline-title {
+    margin-top: 0;
+    color: inherit;
+    font-weight: 400;
+}
+
+.timeline-body > p,
+.timeline-body > ul {
+    margin-bottom: 0;
+}
+
+.timeline-left:before {
+    left: 30px;
+}
+
+.timeline-left > .timeline-item > .timeline-badge {
+    left: 30px;
+    top: 10px;
+}
+
+.timeline-left > .timeline-item > .timeline-panel {
+    width: calc(100% - 70px);
+}
+
+#giftModal .modal-header,
+#walletModal .modal-header {
+    border-bottom: 0;
+}
+
+#giftModal .modal-body,
+#walletModal .modal-body {
+    padding: 0 30px 30px 30px;
+}
+
+#giftModal .modal-body h4,
+#walletModal .modal-body h4 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#giftModal .modal-body .card,
+#walletModal .modal-body .card {
+    background: linear-gradient(125deg, #ffffff 0%, #d1d1d1 100%);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 0;
+    box-shadow: 0 2px 18px rgb(0 0 0 / 8%);
+}
+
+#giftModal .modal-body .card .card-body {
+    padding: 30px 0;
+    text-align: center;
+}
+
+#walletModal .modal-body .card .card-body {
+    padding: 30px 16px;
+    text-align: center;
+}
+
+#giftModal .modal-body .card h5,
+#walletModal .modal-body .card h5 {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+#giftModal .modal-body .card p {
+    font-size: 12px;
+}
+
+#walletModal .modal-body .card img {
+    height: 25px;
+    margin-bottom: 8px;
+}
+
+#walletModal .modal-body .card h5 {
+    text-align: left;
+}
+
+#walletModal .modal-body .card p {
+    font-size: 18px;
+}
+
+#weddingWishes .card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#weddingWishes .card .card-body {
+    padding: 0 1rem 1rem 1rem;
+}
+
+#weddingWishes .comment-block {
+    padding-top: 2rem;
+}
+
+#weddingWishes .comment-block .item {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+#weddingWishes .comment-block .item .in {
+    width: 100%;
+}
+
+#weddingWishes .comment-block .item .comment-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.new-wish {
+    animation: wishFade 0.6s ease;
+}
+
+@keyframes wishFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
