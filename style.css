@@ -188,7 +188,7 @@ section.top-cover.hide {
     font-size: 32px;
     font-weight: 400;
 
-    margin-top: -5px;
+    margin-top: 20px;
     margin-left: -30px;
 
     color: var(--bs-body-color);
