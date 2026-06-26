@@ -71,7 +71,6 @@ hr {
 .secondary-pane {
     position: static;
     right: 0;
-    background-color: var(--bs-body-bg);
     width: 500px;
     margin-left: auto;
 }
